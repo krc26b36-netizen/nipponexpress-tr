@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== TEMA DEĞİŞKENLERİ ===== */
+
+/* Dark (varsayılan) */
+:root,
+.dark {
+  --bg: #0B0D12;
+  --surface: #12151C;
+  --surface-2: #181C25;
+  --border: rgba(255, 255, 255, 0.07);
+  --glass-bg: rgba(24, 28, 37, 0.6);
+  --glass-strong-bg: rgba(18, 21, 28, 0.85);
+  --text: #F4F1EA;
+  --text-muted: #9AA3B2;
+  --text-faint: #6B7385;
+
+  --accent-rgb: 232 69 44;
+  --accent-hover-rgb: 255 90 61;
+  --accent-grad-rgb: 255 122 89;
+  --gold-rgb: 224 176 74;
+  --success-rgb: 127 176 105;
+  --info-rgb: 108 142 245;
+
+  --bg-rgb: 11 13 18;
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.08);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.16);
+  --app-bg-1: rgba(232, 69, 44, 0.16);
+  --app-bg-2: rgba(108, 142, 245, 0.14);
+  --app-bg-3: rgba(247, 198, 208, 0.04);
+  --seigaiha-c: rgba(255, 255, 255, 0.05);
+  --seigaiha-c2: rgba(255, 255, 255, 0.03);
+  --noise-opacity: 0.035;
+}
+
+/* Light */
+html:not(.dark) {
+  --bg: #F4F1EA;
+  --surface: #FFFFFF;
+  --surface-2: #EDEAE2;
+  --border: rgba(0, 0, 0, 0.09);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-strong-bg: rgba(255, 255, 255, 0.94);
+  --text: #1A1D24;
+  --text-muted: #475569;
+  --text-faint: #64748B;
+
+  --accent-rgb: 210 55 35;
+  --accent-hover-rgb: 235 70 50;
+  --accent-grad-rgb: 245 100 75;
+  --gold-rgb: 168 124 18;
+  --success-rgb: 74 130 58;
+  --info-rgb: 64 96 200;
+
+  --bg-rgb: 244 241 234;
+
+  --scrollbar-thumb: rgba(0, 0, 0, 0.14);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.24);
+  --app-bg-1: rgba(232, 69, 44, 0.07);
+  --app-bg-2: rgba(108, 142, 245, 0.06);
+  --app-bg-3: rgba(247, 198, 208, 0.12);
+  --seigaiha-c: rgba(0, 0, 0, 0.04);
+  --seigaiha-c2: rgba(0, 0, 0, 0.025);
+  --noise-opacity: 0.02;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Background glows + grain */
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 50% at 12% 8%, var(--app-bg-1), transparent 60%),
+    radial-gradient(55% 45% at 88% 92%, var(--app-bg-2), transparent 60%),
+    radial-gradient(40% 40% at 50% 50%, var(--app-bg-3), transparent 70%),
+    var(--bg);
+  transition: background 0.3s ease;
+}
+
+.app-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: var(--noise-opacity);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Seigaiha (wave) pattern utility */
+.seigaiha {
+  background-image:
+    radial-gradient(circle at 10px 10px, var(--seigaiha-c) 1.5px, transparent 2px),
+    radial-gradient(circle at 10px 10px, transparent 3px, var(--seigaiha-c2) 4px, transparent 5px);
+  background-size: 20px 20px;
+}
+
+/* Hanko seal */
+.hanko {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-rgb), var(--accent-grad-rgb));
+  background: linear-gradient(135deg, rgb(var(--accent-rgb)), rgb(var(--accent-grad-rgb)));
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 4px 14px rgba(232, 69, 44, 0.4);
+}
+
+/* Glass surface */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-strong {
+  background: var(--glass-strong-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent-grad-rgb));
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Klavye kullanıcıları için "içeriğe atla" bağlantısı */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  background: rgb(var(--accent-rgb));
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Tabular nums for prices/codes */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  background-clip: padding-box;
+}
+
+/* Select dropdown option'lar tema uyumlu */
+select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Input/textarea/select temel stil */
+.input-base {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  transition: border-color 0.2s, background 0.3s ease;
+}
+.input-base::placeholder {
+  color: var(--text-faint);
+}
+.input-base:focus {
+  border-color: rgb(var(--accent-rgb) / 0.5);
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

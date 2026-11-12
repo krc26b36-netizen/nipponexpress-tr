@@ -1,0 +1,123 @@
+// Başlangıç mock talepleri — ownerId ile kullanıcıya atanmış
+// Seed kullanıcılar oluşturulduktan sonra, bu talepler e-posta üzerinden atanır.
+
+export const SEED_TICKET_DATA = [
+  {
+    id: 'JP-TR-1001',
+    productName: 'Sony WH-1000XM5 Kulaklık',
+    category: 'Elektronik',
+    trEstimatePrice: 12000,
+    imageUrl: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80',
+    phone: '+90 532 555 12 34',
+    address: 'Atatürk Mah. Sakura Cad. No:7 Kadıköy / İstanbul',
+    notes: 'Siyah renk, Japonya baskı modeli tercih edilir. Orijinal kutusunda istiyorum.',
+    ownerEmail: 'ahmet@example.com',
+    status: 'shipped',
+    jpyPrice: 38500,
+    kargoJPY: 0,
+    marginPct: 25,
+    tryOffer: null,
+    trackingCode: 'JP-TRK-8842',
+    internalNote: 'Müşteri VIP, hızlı işlem.',
+    createdAt: '2026-10-18T09:12:00Z',
+    updatedAt: '2026-11-02T14:30:00Z',
+    timeline: [
+      { status: 'received', at: '2026-10-18T09:12:00Z', note: 'Talebiniz alındı.', actor: 'system' },
+      { status: 'searching', at: '2026-10-18T11:40:00Z', note: 'Yodobashi Camera & Bic Camera tedarikçilerinde aranıyorum.', actor: 'admin' },
+      { status: 'quoted', at: '2026-10-19T10:05:00Z', note: 'Yodobashi Camera stokta bulundu.', actor: 'admin' },
+      { status: 'awaiting_payment', at: '2026-10-19T12:20:00Z', note: 'Teklif onayınızı bekliyorum.', actor: 'customer' },
+      { status: 'shipped', at: '2026-11-02T14:30:00Z', note: "Tokyo'dan İstanbul'a yola çıktı. Takip kodu: JP-TRK-8842", actor: 'admin' },
+    ],
+  },
+  {
+    id: 'JP-TR-1002',
+    productName: 'Gundam Converge Core Set',
+    category: 'Anime & Manga',
+    trEstimatePrice: 3500,
+    imageUrl: 'https://images.unsplash.com/photo-1606189934846-a527add8a77b?w=600&q=80',
+    phone: '+90 533 444 22 11',
+    address: 'Cumhuriyet Mah. No:14 Çankaya / Ankara',
+    notes: 'Mümkünse tüm seriyi içeren set.',
+    ownerEmail: 'ahmet@example.com',
+    status: 'quoted',
+    jpyPrice: 9800,
+    kargoJPY: 0,
+    marginPct: 25,
+    tryOffer: null,
+    trackingCode: '',
+    internalNote: '',
+    createdAt: '2026-11-05T08:00:00Z',
+    updatedAt: '2026-11-08T16:10:00Z',
+    timeline: [
+      { status: 'received', at: '2026-11-05T08:00:00Z', note: 'Talebiniz alındı.', actor: 'system' },
+      { status: 'searching', at: '2026-11-05T10:15:00Z', note: 'Mandarake & AmiAmi mağazalarında aranıyorum.', actor: 'admin' },
+      { status: 'quoted', at: '2026-11-08T16:10:00Z', note: 'AmiAmi stokta bulundu. Set halinde teklif hazır.', actor: 'admin' },
+    ],
+  },
+  {
+    id: 'JP-TR-1003',
+    productName: 'Shiseido Waso Nemlendirici',
+    category: 'Kozmetik',
+    trEstimatePrice: 1800,
+    imageUrl: '',
+    phone: '+90 530 333 44 55',
+    address: 'Reşitpaşa Mah. No:22 Sarıyer / İstanbul',
+    notes: 'Hassas cilt için uygun mu kontrol eder misiniz?',
+    ownerEmail: 'zeynep@example.com',
+    status: 'searching',
+    jpyPrice: null,
+    kargoJPY: 0,
+    marginPct: 25,
+    tryOffer: null,
+    trackingCode: '',
+    internalNote: '',
+    createdAt: '2026-11-09T13:30:00Z',
+    updatedAt: '2026-11-09T13:30:00Z',
+    timeline: [
+      { status: 'received', at: '2026-11-09T13:30:00Z', note: 'Talebiniz alındı.', actor: 'system' },
+      { status: 'searching', at: '2026-11-09T15:00:00Z', note: 'Don Quijote & Matsumoto Kiyoshi tedarikçilerinde aranıyorum.', actor: 'admin' },
+    ],
+  },
+  {
+    id: 'JP-TR-1004',
+    productName: 'KitKat Matcha Çikolata (12 Paket)',
+    category: 'Gıda & İçecek',
+    trEstimatePrice: 900,
+    imageUrl: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=600&q=80',
+    phone: '+90 542 111 00 99',
+    address: 'Kazım Karabekir Mah. No:3 Melikgazi / Kayseri',
+    notes: 'Sadece matcha çeşitlerini istiyorum.',
+    ownerEmail: 'zeynep@example.com',
+    status: 'delivered',
+    jpyPrice: 2400,
+    kargoJPY: 0,
+    marginPct: 25,
+    tryOffer: null,
+    trackingCode: 'JP-TRK-7731',
+    internalNote: '',
+    createdAt: '2026-10-01T07:45:00Z',
+    updatedAt: '2026-10-28T11:00:00Z',
+    timeline: [
+      { status: 'received', at: '2026-10-01T07:45:00Z', note: 'Talebiniz alındı.', actor: 'system' },
+      { status: 'searching', at: '2026-10-01T09:20:00Z', note: 'Don Quijote mağazalarında aranıyorum.', actor: 'admin' },
+      { status: 'quoted', at: '2026-10-02T12:00:00Z', note: 'Don Quijote stokta bulundu.', actor: 'admin' },
+      { status: 'awaiting_payment', at: '2026-10-02T15:30:00Z', note: 'Ödeme onayınızı bekliyorum.', actor: 'customer' },
+      { status: 'shipped', at: '2026-10-20T09:00:00Z', note: "Tokyo'dan İstanbul'a yola çıktı.", actor: 'admin' },
+      { status: 'delivered', at: '2026-10-28T11:00:00Z', note: 'Teslim edildi. Bizi tercih ettiğiniz için teşekkürler!', actor: 'admin' },
+    ],
+  },
+]
+
+// Kullanıcı listesine göre seed talepleri oluştur (ownerId ata)
+export function getSeedTickets(users) {
+  return SEED_TICKET_DATA.map((t) => {
+    const { ownerEmail, ...rest } = t
+    const owner = users.find((u) => u.email === ownerEmail)
+    return {
+      ...rest,
+      ownerId: owner ? owner.id : '',
+      customerEmail: ownerEmail,
+      timeline: rest.timeline.map((e) => ({ ...e })),
+    }
+  })
+}
